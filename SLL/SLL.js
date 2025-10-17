@@ -7,7 +7,6 @@ class Node {
     }
 }
 
-
 class SingleLinkedList {
 
     constructor(data) {
@@ -15,7 +14,6 @@ class SingleLinkedList {
     }
 
     addNode(num) {
-
         let temp = this.head;
         while (temp.next != null) {
             temp = temp.next;
@@ -36,6 +34,16 @@ class SingleLinkedList {
         console.log(result + "--> null");
     }
 
+    traverseUsingRecursion(head= this.head){
+        if (head == null){         //Base Case
+            console.log("--> NULL");
+            return;
+        }
+        else{
+            console.log(head.data+ " --> ")
+            return this.traverseUsingRecursion(head.next) //#Progress Forward
+        }
+    }
 }
 
 
@@ -46,4 +54,4 @@ SLL.addNode(3);
 SLL.addNode(5);
 SLL.addNode(6);
 SLL.printLinkedList()
-
+SLL.traverseUsingRecursion()
