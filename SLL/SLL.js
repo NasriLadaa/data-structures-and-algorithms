@@ -10,18 +10,22 @@ class Node {
 class SingleLinkedList {
 
     constructor(data) {
-        this.head = new Node(data)
+        this.head = null
     }
 
-    addNode(num) {
-        let temp = this.head;
-        while (temp.next != null) {
-            temp = temp.next;
+    addNodeToTail(num) {
+        var newNode = new Node(num);
+
+        if (this.head === null) {
+            this.head = newNode;
+            return;
         }
 
-        var newNode = new Node(num);
-        temp.next = newNode;
-
+        let current = this.head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        current.next = newNode;
     }
 
     printLinkedList() {
@@ -31,17 +35,17 @@ class SingleLinkedList {
             result += temp.data + " --> "
             temp = temp.next;
         }
-        console.log(result + "--> null");
+        console.log(result + "null");
     }
 
-    traverseUsingRecursion(head= this.head){
-        if (head == null){         //Base Case
-            console.log("--> NULL");
+    traverseUsingRecursion(head = this.head) {
+        if (head == null) {         //Base Case
+            console.log("null");
             return;
         }
-        else{
-            console.log(head.data+ " --> ")
-            return this.traverseUsingRecursion(head.next) //#Progress Forward
+        else {
+            console.log(head.data + " --> ")
+            return this.traverseUsingRecursion(head.next) //Progress Forward
         }
     }
 }
@@ -50,8 +54,8 @@ class SingleLinkedList {
 
 //--------------------------------------------------------Out side Classes---------------------------
 const SLL = new SingleLinkedList(1);
-SLL.addNode(3);
-SLL.addNode(5);
-SLL.addNode(6);
+SLL.addNodeToTail(3);
+SLL.addNodeToTail(5);
+SLL.addNodeToTail(6);
 SLL.printLinkedList()
 SLL.traverseUsingRecursion()
