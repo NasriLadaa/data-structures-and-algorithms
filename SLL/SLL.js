@@ -28,6 +28,17 @@ class SingleLinkedList {
         current.next = newNode;
     }
 
+    addNodeToHead(val){
+        var newNode = new Node(val);
+        if (this.head === null){
+            this.head = newNode;
+            return;
+        }
+        
+        newNode.next = this.head;
+        this.head = newNode;
+    }
+
     printLinkedList() {
         let temp = this.head;
         let result = ""
@@ -57,5 +68,6 @@ const SLL = new SingleLinkedList(1);
 SLL.addNodeToTail(3);
 SLL.addNodeToTail(5);
 SLL.addNodeToTail(6);
+SLL.addNodeToHead(100)
 SLL.printLinkedList()
 SLL.traverseUsingRecursion()
