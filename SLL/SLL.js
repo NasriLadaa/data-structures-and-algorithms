@@ -9,7 +9,7 @@ class Node {
 
 class SingleLinkedList {
 
-    constructor(data) {
+    constructor() {
         this.head = null
     }
 
@@ -39,6 +39,28 @@ class SingleLinkedList {
         this.head = newNode;
     }
 
+    addNodeToPostion(postion, val){
+        var newNode = new Node(val)
+        if (postion == 0 ){
+            newNode.next = this.head;
+            this.head = newNode;
+            return;
+        }
+
+        let current = this.head
+
+        for ( var i = 0 ; i < postion - 1 ; i++){
+            if ( current.next == null){
+                console.log("Postion out of range");
+                return;
+            }
+            current = current.next
+        }
+
+        newNode.next = current.next
+        current.next = newNode
+    }
+
     printLinkedList() {
         let temp = this.head;
         let result = ""
@@ -64,10 +86,14 @@ class SingleLinkedList {
 
 
 //--------------------------------------------------------Out side Classes---------------------------
-const SLL = new SingleLinkedList(1);
+const SLL = new SingleLinkedList();
 SLL.addNodeToTail(3);
 SLL.addNodeToTail(5);
 SLL.addNodeToTail(6);
 SLL.addNodeToHead(100)
 SLL.printLinkedList()
 SLL.traverseUsingRecursion()
+
+SLL.addNodeToPostion(0,200000)
+SLL.printLinkedList()
+
