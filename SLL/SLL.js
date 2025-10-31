@@ -61,6 +61,16 @@ class SingleLinkedList {
         current.next = newNode
     }
 
+    removeHead(){
+        if (this.head == null){
+            return;
+        }
+
+        const removedValue = this.head.data;
+        this.head = this.head.next;
+        return removedValue;
+    }
+
     printLinkedList() {
         let temp = this.head;
         let result = ""
@@ -95,5 +105,6 @@ SLL.printLinkedList()
 SLL.traverseUsingRecursion()
 
 SLL.addNodeToPostion(0,200000)
+SLL.removeHead()
 SLL.printLinkedList()
 
