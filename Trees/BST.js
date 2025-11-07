@@ -56,12 +56,21 @@ class BST {
         }
     }
 
+    inorder(root) {
+        if (root !== null) {
+            this.preorder(root.left)
+            console.log(root.data);
+            this.preorder(root.right)
+        }
+    }
 
 }
 
 const bst = new BST()
 root = bst.insert(22)
 root = bst.insert(40)
-bst.preorder(bst.getRootNode())
+root = bst.insert(10)
+//bst.preorder(bst.getRootNode())
+bst.inorder(bst.getRootNode())
 
 
