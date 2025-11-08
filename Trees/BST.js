@@ -58,9 +58,17 @@ class BST {
 
     inorder(root) {
         if (root !== null) {
-            this.preorder(root.left)
+            this.inorder(root.left)
             console.log(root.data);
-            this.preorder(root.right)
+            this.inorder(root.right)
+        }
+    }
+
+    postorder(root) {
+        if (root !== null) {
+            this.postorder(root.left)
+            this.postorder(root.right)
+            console.log(root.data);
         }
     }
 
