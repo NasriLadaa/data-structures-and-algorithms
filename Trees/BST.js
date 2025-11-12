@@ -1,3 +1,4 @@
+import Queue from './Queue.js'; 
 
 class Node {
 
@@ -72,13 +73,52 @@ class BST {
         }
     }
 
+    //Breadth First Search
+    BFS(root){
+        console.log("NasriLadaa");
+        if (root == null){
+            return;
+        }
+
+        var queue = new Queue()
+        queue.enqueue(root)
+
+        while (!queue.isEmpty()) {
+            var currentNode = queue.dequeue();
+            console.log("Node "+currentNode.data);
+
+            if (currentNode.left != null) {
+                queue.enqueue(currentNode.left)
+            }
+
+            if (currentNode.right != null) {
+                queue.enqueue(currentNode.right)
+            }
+
+            
+        }
+        
+    }
+
 }
 
-const bst = new BST()
-root = bst.insert(22)
-root = bst.insert(40)
-root = bst.insert(10)
-//bst.preorder(bst.getRootNode())
-bst.inorder(bst.getRootNode())
+
+var BinarySearchTree = new BST();
+
+BinarySearchTree.insert(100);
+BinarySearchTree.insert(200);
+BinarySearchTree.insert(30);
+BinarySearchTree.insert(10);
+BinarySearchTree.insert(35);
+BinarySearchTree.insert(150);
+BinarySearchTree.insert(300);
+var rootvalue = BinarySearchTree.getRootNode();
+console.log("-------" + JSON.stringify(rootvalue));
+
+
+//BinarySearchTree.preorder(BinarySearchTree.getRootNode())
+//BinarySearchTree.inorder(BinarySearchTree.getRootNode())
+
+BinarySearchTree.BFS(BinarySearchTree.getRootNode());
 
 
