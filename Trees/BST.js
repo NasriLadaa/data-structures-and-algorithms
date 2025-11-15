@@ -100,6 +100,24 @@ class BST {
         
     }
 
+    getMinValue() {
+        if (this.root === null) {
+            return null;
+        }
+        else {
+            return this.getminValueNode(this.root);
+        }
+    }
+
+    getminValueNode(node) {
+        if (node.left === null) {
+            return node;
+        }
+        else {
+            return this.getminValueNode(node.left);
+        }
+    }
+
 }
 
 
@@ -120,5 +138,8 @@ console.log("-------" + JSON.stringify(rootvalue));
 //BinarySearchTree.inorder(BinarySearchTree.getRootNode())
 
 BinarySearchTree.BFS(BinarySearchTree.getRootNode());
+
+//console.log(BinarySearchTree.getMinValue().data);
+
 
 
