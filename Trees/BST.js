@@ -1,4 +1,4 @@
-import Queue from './Queue.js'; 
+import Queue from './Queue.js';
 
 class Node {
 
@@ -74,9 +74,9 @@ class BST {
     }
 
     //Breadth First Search
-    BFS(root){
+    BFS(root) {
         console.log("NasriLadaa");
-        if (root == null){
+        if (root == null) {
             return;
         }
 
@@ -85,7 +85,7 @@ class BST {
 
         while (!queue.isEmpty()) {
             var currentNode = queue.dequeue();
-            console.log("Node "+currentNode.data);
+            console.log("Node " + currentNode.data);
 
             if (currentNode.left != null) {
                 queue.enqueue(currentNode.left)
@@ -95,9 +95,9 @@ class BST {
                 queue.enqueue(currentNode.right)
             }
 
-            
+
         }
-        
+
     }
 
     getMinValue() {
@@ -117,6 +117,24 @@ class BST {
             return this.getminValueNode(node.left);
         }
     }
+
+    find(value) {
+        return this.findNode(this.root, value);
+    }
+
+
+    findNode(root, value) {
+        if (root === null) return null;
+        if (root.data === value) return root;
+
+
+        if (value < root.data) {
+            return this.findNode(root.left, value);
+        } else {
+            return this.findNode(root.right, value);
+        }
+    }
+
 
 }
 
@@ -141,5 +159,5 @@ BinarySearchTree.BFS(BinarySearchTree.getRootNode());
 
 //console.log(BinarySearchTree.getMinValue().data);
 
-
+//console.log(BinarySearchTree.find(2222));
 
